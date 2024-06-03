@@ -1,0 +1,23 @@
+#calendar-container, #time-container, #submit-container {
+    margin: 20px;
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #4f70b4; /* 선택된 버튼의 배경색 */
+    color: white;
+}

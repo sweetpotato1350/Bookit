@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en, ko"> 
+<head>
+    <meta charset="UTF-8">
+    <title>UGHS class reservation system</title>
+    <link href="ex.css" rel="stylesheet" type="text/css" />
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <div class="nav">
+        <strong>UGHS class reservation system</strong>
+    </div>
+    <div class="cal_design">
+        <div class = "calendar_container"> 
+            
+            <button class = "left_button"> &lt </button>
+            
+            <table class = "calendar">
+                <th class = "title">2월</th>
+                <tbody>
+                    <tr class = "week">
+                        <td class = "day">일</td>
+                        <td class = "day">월</td>
+                        <td class = "day">화</td>
+                        <td class = "day">수</td>
+                        <td class = "day">목</td>
+                        <td class = "day">금</td>
+                        <td class = "day">토</td>
+                    </tr>
+                    <tr>    <!-- 달력 첫 번째 줄-->
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 두 번째 줄-->
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 세 번째 줄-->
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 네 번째 줄-->
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 다섯 번째 줄-->
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 여섯 번째 줄-->
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                        <td class = "calendar_days" roll = "button"> </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <button class = "right_button"> > </button>
+    </div>
+    
+    <div class="button-container">
+        <button class="time-button" onclick="addData()">12:30~13:30</button>
+        <button class="time-button" onclick="addData()">15:30~16:30</button>
+        <button class="time-button" onclick="addData()">16:30~17:30</button>
+        <button class="time-button" onclick="addData()">17:30~18:30</button>
+    </div>
+
+    <div class="select-button-container">
+        <button type="button" class="time_select_button" onClick="addData()">  선택  </button>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAVGl0pYNeCB9eJOd1p91e3149bH62H-6k",
+            authDomain: "ughs-reservation2024.firebaseapp.com",
+            databaseURL: "https://ughs-reservation2024-default-rtdb.firebaseio.com",
+            projectId: "ughs-reservation2024",
+            storageBucket: "ughs-reservation2024.appspot.com",
+            messagingSenderId: "583392468686",
+            appId: "1:583392468686:web:2856832b88ead0d8167a9f",
+            measurementId: "G-D543RC3FNW"
+        };
+        
+        // Firebase 초기화
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+
+        // 사용자 인증 상태 변경 감지
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                console.log(user.uid + ' 로그인됨');
+            } else {
+                window.location.href = "login.html";
+                console.log('로그인되지 않음');
+            }
+        });
+
+        // 데이터 추가 함수
+        function addData() {
+            if (auth.currentUser) {
+                const selectedDateElement = document.querySelector('.selected-date');
+                const selectedDate = selectedDateElement ? selectedDateElement.textContent.trim() : 'No date selected';
+                db.collection('reservations').add({
+                    email: auth.currentUser.email,
+                    date: selectedDate,
+                    time: "12:30~13:30"
+                }).then(ref => {
+                    console.log('예약 ID로 추가됨: ', ref.id);
+                }).catch(error => {
+                    console.error('예약 추가 중 에러 발생: ', error);
+                });
+            } else {
+                console.log('사용자 정보 없음');
+            }
+        }
+    </script>
+    
+    <script src = "calendar.js"></script>
+</body>
+</html>

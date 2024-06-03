@@ -1,0 +1,161 @@
+.body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav {
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #191970;
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* 버튼들이 다음 줄로 넘어갈 수 있도록 설정 */
+}
+
+.select-button-container {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    width: 100%; /* 컨테이너 너비 전체 사용 */
+}
+
+.time-button {
+    display: flex;
+    padding: 15px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    min-width: 90px;
+    font-weight: bolder;
+}
+
+.time-button:hover {
+    background-color: #e0e0e0;
+}
+
+.time_select_button {
+    background-color: #191970;
+    color: white; /* 흰색 글자 */
+    padding: 14px 20px; /* 패딩 */
+    margin: 8px 0; /* 상하 마진 */
+    border: none; /* 테두리 없음 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    font-size: 16px; /* 글자 크기 */
+    font-weight: bold;
+}
+
+.time_select_button:hover {
+    background-color: #303076; /* 호버 시 배경색 변경 */
+}
+
+
+/* 화면 크기가 600px 이하일 때 스타일 조정 */
+@media (max-width: 600px) {
+    .time-button {
+        padding: 8px 15px; /* 패딩 감소 */
+        font-size: 14px; /* 글자 크기 감소 */
+        min-width: 80px; /* 최소 너비 감소 */
+    }
+
+    .button-container {
+        padding: 0 10px; /* 컨테이너 양쪽 패딩 추가 */
+    }
+}
+
+
+.navyBtn {
+    align-items: center;
+    color: rgb(255, 255, 255);
+
+}
+
+.cal_design {
+    border: 1px solid black;
+}
+
+.calendar_container {
+    display: flex;
+    top: 30%;
+    left: 50%;
+    right: 50%;
+    justify-content: center;
+}
+
+
+.hide {
+    display:none;
+}
+
+.calendar_container > button {
+    margin-top: 4%;
+    font-weight: bold;
+    height:10%;
+}
+
+.left_button {
+    margin-left:17%;
+    border: transparent;
+}
+
+.right_button {
+    margin-right:17%;
+    border: transparent;
+}
+
+.calendar {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-top: 3%;
+    margin-right:2.5%;
+}
+
+
+.calendar_days > button  {
+    width: 48px;
+    height: 47px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: transparent;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.day {
+    text-align: center;
+    font-size:12px;
+    font-weight: bold;
+    color:rgb(189, 189, 189);
+}
+
+
+.day_hover {
+    border: 1px solid black !important;
+}
+
+.day_selected {
+    background-color: black !important;
+    color: #ffff;
+}
+
+.gray {
+    background-color: rgb(241, 241, 241) !important;
+}
+
