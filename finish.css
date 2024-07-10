@@ -1,0 +1,309 @@
+.datepicker-date-display {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 auto;
+  -ms-flex: 1 auto;
+  flex: 1 auto;
+  background-color: #62649D;
+  color: #fff;
+  padding: 20px 22px;
+  font-weight: 500;
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+  color: #62649D;
+  padding: 0 1rem;
+}
+.datepicker-table td.is-selected {
+  background-color: #62649D;
+  color: #fff;
+}
+.datepicker-table td.is-today {
+  color: #000;
+}
+input.datepicker{
+  width: 50%;
+}
+/* 달력의 테두리 색상 변경 */
+.datepicker-container {
+  border: 1px solid #6b72da; /* 원하는 테두리 색상으로 변경 */
+}
+
+/* 오늘 날짜의 텍스트 색상 변경 */
+.datepicker-table td.is-today {
+  color: #6b72da; /* 원하는 텍스트 색상으로 변경 */
+}
+
+/* 날짜 선택기의 배경 색상 변경 */
+.datepicker {
+  background-color: #f0f0f0; /* 원하는 배경 색상으로 변경 */
+}
+
+/* 선택된 날짜의 배경 색상과 텍스트 색상 변경 */
+.datepicker-table td.is-selected {
+  background-color: #6b72da; /* 선택된 날짜 배경 색상 */
+  color: #ffffff; /* 선택된 날짜 텍스트 색상 */
+}
+
+/* 날짜 테이블의 날짜 텍스트 색상 변경 */
+.datepicker-table td {
+  color: #333; /* 원하는 날짜 텍스트 색상 */
+}
+
+/* 달력 헤더 색상 변경 */
+.datepicker-controls .month-prev,
+.datepicker-controls .month-next,
+.datepicker-controls .select-month,
+.datepicker-controls .select-year {
+  color: #6b72da; /* 원하는 헤더 텍스트 색상 */
+}
+
+/* 달력의 네비게이션 화살표 색상 변경 */
+.datepicker-controls .month-prev:before,
+.datepicker-controls .month-next:before {
+  border-color: #6b72da; /* 원하는 화살표 색상 */
+}
+
+body,
+html {
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: radial-gradient(circle, #ffffff 2.5%, #b4b4bf);
+
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #4a4772;
+  color: #ffffff;
+  width: 90%;
+  margin: 0 auto; /* 중앙 정렬 및 좌우 여백 자동 */
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  /* Adjust based on header height */
+}
+
+.back-rectangle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  height: 430px;
+  width: 700px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin: 0 20px; /* 좌우 간격 설정 */
+  border-radius: 25px;
+  margin-top: -30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+}
+
+.room-image {
+width: 100%;
+height: auto;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none; /* 초기에는 숨김 */
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  width: 600px;
+  max-width: 90%; /* 화면이 작아질 경우 대비하여 최대 너비 설정 */
+  height: 780px;
+  z-index: 20;
+  display: none; /* 초기에는 숨김 */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  overflow-y: auto; /* 모달 내부 스크롤 활성화 */
+
+}
+
+
+.close-btn {
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 21px;
+border: none;
+background: transparent;
+cursor: pointer;
+}
+
+.close-btn:hover {
+color: #f00;
+/* Color change on hover to indicate interactiveness, adjust as needed */
+}
+
+/* Hide the modal by default */
+.modal-background,
+.modal {
+display: none;
+}
+
+button {
+padding: 10px 20px;
+margin: 5px;
+background-color: lightgray;
+border: none;
+cursor: pointer;
+}
+
+.back-rectangle button {
+  border-radius: 20px;
+  margin-top: 10px;
+  width: 100%;
+  height: 130px;
+  background-color: #61649D;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.back-rectangle button:hover{
+  background-color: #8284B0;
+}
+
+button:hover {
+background-color: #ddd;
+}
+
+button:disabled {
+background-color: #ccc;
+cursor: not-allowed;
+}
+
+#calendar-container {
+max-width: 300px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.fc-content,
+.fc-title,
+.fc-day-number {
+font-size: 13px;
+}
+
+.fc-button {
+padding: 4px 6px;
+font-size: 10px;
+}
+
+.fc-view>table {
+min-height: 200px;
+}
+
+#time-container {
+display: flex;
+justify-content: center;
+/* Center the buttons horizontally */
+margin-top: 10px;
+}
+
+#time-container button {
+margin: 0 5px;
+/* Spacing between buttons */
+border-radius: 8px;
+background-color: #8284B0;
+color: #ffffff;
+}
+
+#time-container button:hover {
+  background-color: #5f5fbc;
+}
+
+#submit-container {
+text-align: center;
+/* Center the submit button */
+margin-top: 20px;
+}
+
+#submitReservationButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #61649D;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submitReservationButton:hover {
+  background-color: #5f5fbc;
+}
+
+#logo_img {
+  height: 100px;
+  width: 100px;
+}
+
+#roomImage.room-image {
+  margin-top: 40px;
+}
+
+.back-rectangle .room-image {
+  max-width: 100%; /* 이미지의 최대 너비를 부모 요소인 back-rectangle의 너비에 맞게 조정 */
+  height: 280px; /* 너비에 맞춰 자동으로 높이 조정 */
+  border-radius: 20px;
+  width: 100%;
+}
+
+#roomDescription.description {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 1.5%;
+  text-align: center
+}
+
+/* 스타일 클래스 추가 */
+#time-container button.selected {
+  background-color: #ffeb3b; /* 원하는 색상으로 변경 */
+  color: black;
+  font-weight: bold;
+}
+
+/* 선택된 날짜 스타일 */
+.selected-date {
+  background-color: #ffeb3b !important; /* 원하는 색상으로 변경 */
+  color: black !important;
+  font-weight: bold;
+}

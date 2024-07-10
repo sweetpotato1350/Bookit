@@ -1,17 +1,19 @@
 .nav {
     font-size: 40px;
     font-weight: bold;
-    background-color: #191970;
+    background-color: #4a4772;
     color: white;
-    padding: 30px;
+    padding: 35px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 90%;
     z-index: 1001; /* 다른 콘텐츠 위에 위치 */
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 /* 기본 바디 및 배경 스타일 */
@@ -88,7 +90,7 @@ label {
 
 /* 버튼 스타일 */
 button, input[type="submit"] {
-    background-color: #191970;
+    background-color: #4a4772;
     color: white;
     padding: 10px 20px;
     margin: 8px 0;
@@ -99,7 +101,7 @@ button, input[type="submit"] {
 }
 
 button:hover, input[type="submit"]:hover {
-    background-color: #3333a2;
+    background-color: #8284B0;
 }
 #login-form{
     margin-left: 55px;
