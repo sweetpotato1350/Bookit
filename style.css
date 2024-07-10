@@ -1,0 +1,39 @@
+.nav {
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #171746;
+    color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* 다른 콘텐츠 위에 위치 */
+}
+
+#calendar-container, #time-container, #class-container, #submit-container {
+    margin-top: 120px;
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #212f4a; /* 선택된 버튼의 배경색 */
+    color: white;
+}

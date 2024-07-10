@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Reservation</title>
+    <link rel="stylesheet" href="class.css">
+</head>
+<body>
+    <h1>울산여자고등학교 학생활동실 예약 시스템</h1>
+    <div id="roomButtons">
+        <button id="room1">본관 4층</button>
+        <button id="room2">본관 2층</button>
+        <button id="room4">별관 4층</button>
+    </div>
+    <div id="modalBackground" class="modal-background"></div>
+    <div id="modal" class="modal">
+        <img src="" id="roomImage" alt="Room Image" class="room-image">
+        <div id="roomDetailsContainer">
+            <p id="roomDescription" class="description"></p>
+            <p id="additionalText"></p>
+        </div>
+        <button id="reserveBtn">예약하기</button>
+        <button id="closeModalBtn">Close</button>
+    </div>
+    
+    <script>
+        const modalBackground = document.getElementById('modalBackground');
+        const modal = document.getElementById('modal');
+        const roomImage = document.getElementById('roomImage');
+        const roomDescription = document.getElementById('roomDescription');
+        const additionalText = document.getElementById('additionalText');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const reserveBtn = document.getElementById('reserveBtn');
+
+        const imagePaths = {
+            room1: "class2.png",
+            room2: "class4.png",
+            room4: "class5.png"
+        };
+
+        const roomDescriptions = {
+            room1: { 
+                description: "학생활동실 1"
+            },
+            room2: { 
+                description: "학생활동실 2"
+            },
+            room4: { 
+                description: "학생활동실 4",            
+            }
+        };
+
+        document.querySelectorAll('#roomButtons button').forEach(button => {
+            button.addEventListener('click', function() {
+                const roomId = this.id;
+                showRoomModal(roomId);
+            });
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            closeModal();
+        });
+
+        reserveBtn.addEventListener('click', function() {
+            window.location.href = 'reservation.html';
+        });
+
+        function showRoomModal(roomId) {
+            roomDescription.textContent = roomDescriptions[roomId].description;
+            roomImage.src = imagePaths[roomId];
+
+            modalBackground.style.display = 'block';
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            modalBackground.style.display = 'none';
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

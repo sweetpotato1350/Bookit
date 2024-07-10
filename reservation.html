@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en, ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js" type="module"></script>
+    <script src="firebase-init.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <div id="calendar-container">
+        <input type="date" id="datePicker">
+    </div>
+    <div id="time-container">
+        <button>12:30~13:30</button>
+        <button>15:30~16:30</button>
+        <button>16:30~17:30</button>
+        <button>17:30~18:30</button>
+    </div>
+    
+    <div id="submit-container">
+        <button id="submitReservationButton">예약하기</button>
+    </div>    
+</body>
+</html>
