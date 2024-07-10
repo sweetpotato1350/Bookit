@@ -1,161 +1,171 @@
-.body {
-    font-family: 'Roboto', sans-serif;
+body,
+html {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle, #ffffff 2.5%, #b4b4bf);
+
 }
 
-.nav {
+h1 {
     font-size: 40px;
     font-weight: bold;
-    background-color: #191970;
-    color: rgb(255, 255, 255);
-    padding: 30px;
+    color: #ffffff;
+}
+
+.header-content {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-}
-
-.button-container {
-    display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* 버튼들이 다음 줄로 넘어갈 수 있도록 설정 */
+    padding: 20px;
+    background-color: #4a4772;
+    color: #ffffff;
+    width: 90%;
+    margin: 0 auto; /* 중앙 정렬 및 좌우 여백 자동 */
+    margin-top: 10px;
+    border-radius: 8px;
 }
 
-.select-button-container {
+
+
+.container {
     display: flex;
-    justify-content: center; /* 중앙 정렬 */
-    width: 100%; /* 컨테이너 너비 전체 사용 */
+    justify-content: space-around;
+    margin-top: 80px;
+    /* Adjust based on header height */
+    max-width: 800px;
+    
 }
 
-.time-button {
-    display: flex;
-    padding: 15px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: #f8f8f8;
-    transition: background-color 0.3s;
-    border-radius: 4px;
-    min-width: 90px;
-    font-weight: bolder;
+.back-rectangle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  height: 350px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  /* Light grey background for visibility */
+  border: 1px solid #ccc;
+  /* Optional border */
+  margin-top: 55px;
 }
 
-.time-button:hover {
-    background-color: #e0e0e0;
+.room-image {
+  width: 100%;
+  height: auto;
 }
 
-.time_select_button {
-    background-color: #191970;
-    color: white; /* 흰색 글자 */
-    padding: 14px 20px; /* 패딩 */
-    margin: 8px 0; /* 상하 마진 */
-    border: none; /* 테두리 없음 */
-    border-radius: 4px; /* 모서리 둥글게 */
-    cursor: pointer; /* 마우스 오버 시 커서 변경 */
-    font-size: 16px; /* 글자 크기 */
-    font-weight: bold;
-}
-
-.time_select_button:hover {
-    background-color: #303076; /* 호버 시 배경색 변경 */
-}
-
-
-/* 화면 크기가 600px 이하일 때 스타일 조정 */
-@media (max-width: 600px) {
-    .time-button {
-        padding: 8px 15px; /* 패딩 감소 */
-        font-size: 14px; /* 글자 크기 감소 */
-        min-width: 80px; /* 최소 너비 감소 */
-    }
-
-    .button-container {
-        padding: 0 10px; /* 컨테이너 양쪽 패딩 추가 */
-    }
-}
-
-
-.navyBtn {
+.modal-background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex; /* 초기에는 숨김 */
     align-items: center;
-    color: rgb(255, 255, 255);
-
+    justify-content: center;
 }
 
-.cal_design {
-    border: 1px solid black;
-}
-
-.calendar_container {
-    display: flex;
-    top: 30%;
+.modal {
+    position: relative;
+    top: 50%;
     left: 50%;
-    right: 50%;
-    justify-content: center;
+    padding: 20px;
+    margin: auto;
+    background-color: white;
+    width: 600px;
+    max-width: 90%; /* 화면이 작아질 경우 대비하여 최대 너비 설정 */
+    height: auto;
+    z-index: 20;
+    display: none; /* 초기에는 숨김 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    border-radius: 8px; /* 모서리 둥글게 */
 }
 
 
-.hide {
-    display:none;
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
-.calendar_container > button {
-    margin-top: 4%;
-    font-weight: bold;
-    height:10%;
+.close-btn:hover {
+  color: #f00;
+  /* Color change on hover to indicate interactiveness, adjust as needed */
 }
 
-.left_button {
-    margin-left:17%;
-    border: transparent;
+/* Hide the modal by default */
+.modal-background,
+.modal {
+  display: none;
 }
 
-.right_button {
-    margin-right:17%;
-    border: transparent;
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: lightgray;
+  border: none;
+  cursor: pointer;
 }
 
-.calendar {
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    margin-top: 3%;
-    margin-right:2.5%;
+button:hover {
+  background-color: #ddd;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#calendar-container {
+  max-width: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.fc-content,
+.fc-title,
+.fc-day-number {
+  font-size: 10px;
+}
+
+.fc-button {
+  padding: 4px 6px;
+  font-size: 10px;
+}
+
+.fc-view>table {
+  min-height: 200px;
 }
 
 
-.calendar_days > button  {
-    width: 48px;
-    height: 47px;
-    border-radius: 100%;
-    background-color: transparent;
-    border: transparent;
+#time-container {
+  display: flex;
+  justify-content: center;
+  /* Center the buttons horizontally */
+  margin-top: 10px;
 }
 
-table {
-    border-collapse: separate;
-    border-spacing: 0 10px;
+#time-container button {
+  margin: 0 10px;
+  /* Spacing between buttons */
 }
 
-.day {
-    text-align: center;
-    font-size:12px;
-    font-weight: bold;
-    color:rgb(189, 189, 189);
+#submit-container {
+  text-align: center;
+  /* Center the submit button */
+  margin-top: 20px;
 }
 
+#logo_img {
+    height: 100px;
+    width: 100px;
 
-.day_hover {
-    border: 1px solid black !important;
 }
-
-.day_selected {
-    background-color: black !important;
-    color: #ffff;
-}
-
-.gray {
-    background-color: rgb(241, 241, 241) !important;
-}
-
